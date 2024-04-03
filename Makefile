@@ -3,11 +3,11 @@
 all: test-linux test-win
 
 check: test-linux test-win
-	./test-linux
-	./test-win
+	./tests/test-linux
+	./tests/test-win
 
-test-linux: test-linux.c cfgpath.h
-	$(CC) -O0 -g -o $@ $<
+test-linux: ./tests/test-linux.c
+	$(CC) -O0 -g -o ./tests/$@ $< -I.
 
-test-win: test-win.c cfgpath.h shlobj.h
-	$(CC) -O0 -g -o $@ $< -I.
+test-win: ./tests/test-win.c
+	$(CC)  -O0 -g -o ./tests/$@ $< -I. -I./tests

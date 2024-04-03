@@ -16,6 +16,9 @@
 #endif
 #undef WIN32
 #define getenv test_getenv
+/* Suppressing Wimplicit-function-declaration */
+#include <sys/stat.h>
+int test_mkdir(const char *path, mode_t mode);
 #define mkdir test_mkdir
 #include "cfgpath.h"
 

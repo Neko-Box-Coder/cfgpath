@@ -11,7 +11,11 @@
 #include <string.h>
 #include <stdio.h>
 
+/* Suppressing Wimplicit-function-declaration */
+int test_SHGetFolderPath(void *hwndOwner, int nFolder, void *hToken,
+	int dwFlags, char *pszPath);
 #define SHGetFolderPath test_SHGetFolderPath
+int test_mkdir(const char *path);
 #define mkdir test_mkdir
 #undef __linux__
 #ifndef WIN32
